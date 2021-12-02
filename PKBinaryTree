@@ -1,0 +1,44 @@
+
+from typing import Any, Callable
+
+class BinaryNode:
+    value: Any
+    left_child: 'BinaryNode'
+    right_child: 'BinaryNode'
+
+    def __init__(self, value: Any):
+        self.value = value
+        self.left_child = None
+        self.right_child = None
+
+    def  __str__(self):
+        wynik = str(self.value)
+        return wynik
+
+    def isLeaf(self):
+        if (self.left_child == None and self.right_child == None):
+            return True
+        return False
+
+    def add_left_child(self, value: Any):
+        self.left_child.append(value)
+    def add_right_child(self, value: Any):
+        self.right_child.append(value)
+
+    def traverse_in_order(self, visit: Callable[[Any], None]):
+        if(self.left_child != None):
+            while(self.left_child):
+                visit(self)
+
+    def traverse_pre_order(self, visit: Callable[[Any], None]):
+        tmp = self
+        while (tmp.left_child is not None):
+            tmp.traverse_pre_order(visit)
+            tmp = left_child
+
+
+class Binary Tree:
+    root : 'BinaryNode'
+    def __init__self(self, root):
+        self.root = root
+    
